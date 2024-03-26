@@ -13,7 +13,10 @@ class Storage {
     }
 
     removeItem(itemToRemove) {
-        this.#items.splice(this.#items.indexOf(itemToRemove), 1);
+        if (this.#items.includes(itemToRemove)) {
+            this.#items.splice(this.#items.indexOf(itemToRemove), 1);
+        }
+       
     }
 }
 
@@ -23,3 +26,5 @@ storage.addItem("Droid");
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 storage.removeItem("Prolonger");
 console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+
